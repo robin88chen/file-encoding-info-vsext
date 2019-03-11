@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncodingInfo", "FileEncodingInfo\FileEncodingInfo.csproj", "{B7C630DC-80E0-4D50-AFEF-F0D21B8B8137}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7C630DC-80E0-4D50-AFEF-F0D21B8B8137}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C630DC-80E0-4D50-AFEF-F0D21B8B8137}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C630DC-80E0-4D50-AFEF-F0D21B8B8137}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C630DC-80E0-4D50-AFEF-F0D21B8B8137}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DFF6DC0-0FC4-4DBA-82A2-8F8B0FAB00B6}
+	EndGlobalSection
+EndGlobal
