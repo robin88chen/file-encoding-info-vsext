@@ -42,19 +42,22 @@ namespace FileEncodingInfo
             ThreadHelper.ThrowIfNotOnUIThread();
             m_factory = factory;
             m_textView = textView;
+            uint co = 0xff000000;
+            uint text_co = 0xffffffff;
             IVsUIShell5 ui_shell = Microsoft.VisualStudio.Shell.Package.GetGlobalService(typeof(SVsUIShell)) as IVsUIShell5;
-            uint co = ui_shell.GetThemedColor(new System.Guid("624ed9c3-bdfd-41fa-96c3-7c824ea32e3d"), "ScrollBar",
-                0);
-            uint text_co = ui_shell.GetThemedColor(new System.Guid("624ed9c3-bdfd-41fa-96c3-7c824ea32e3d"), "ButtonText",
-                0);
+            if (ui_shell != null)
+            {
+                co = ui_shell.GetThemedColor(new System.Guid("624ed9c3-bdfd-41fa-96c3-7c824ea32e3d"),
+                    "ScrollBar", 0);
+                text_co = ui_shell.GetThemedColor(new System.Guid("624ed9c3-bdfd-41fa-96c3-7c824ea32e3d"),
+                    "ButtonText", 0);
+            }
 
-            //m_factory.serviceProvider.GetService(typeof(SVsUIShell));
-
-            //var font = m_formatMap.GetTextProperties(m_lineNumberClassification);
-            //VsBrushes.ScrollBarArrowBackgroundKey
-            //VSColorTheme.GetThemedColor(VsBrushes.ScrollBarArrowBackgroundKey)
-            ITextDocument doc;
-            m_factory.TextDocumentFactoryService.TryGetTextDocument(m_textView.TextBuffer, out doc);
+            ITextDocument doc = null;
+            if (m_factory.TextDocumentFactoryService != null)
+            {
+                m_factory.TextDocumentFactoryService.TryGetTextDocument(m_textView.TextBuffer, out doc);
+            }
             string path_and_encoding = "";
             if (doc != null)
             {
@@ -68,15 +71,10 @@ namespace FileEncodingInfo
             byte tb = (byte)((text_co >> 16) & 0xff);
             byte tg = (byte)((text_co >> 8) & 0xff);
             byte tr = (byte)(text_co & 0xff);
-            //Microsoft.VisualStudio.Shell.Package.GetGlobalService()
             Brush backgroundBrush = new SolidColorBrush(new Color() { A = a, R = r, G = g, B = b }); // font.BackgroundBrush;
             Brush foregroundBrush = new SolidColorBrush(new Color() { A = ta, R = tr, G = tg, B = tb }); //font.ForegroundBrush;
 
             base.Background = backgroundBrush;
-
-           // _formatting = font;
-
-
 
             this.Height = 20; // Margin height sufficient to have the label
             this.ClipToBounds = true;

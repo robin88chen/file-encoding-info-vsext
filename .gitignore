@@ -4,3 +4,4 @@
 /obj
 *.usr
 Debug/
+Release/
