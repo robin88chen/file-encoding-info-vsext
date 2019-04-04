@@ -5,3 +5,4 @@
 *.usr
 Debug/
 Release/
+*.user
