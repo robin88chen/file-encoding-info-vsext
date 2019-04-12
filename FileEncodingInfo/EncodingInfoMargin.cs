@@ -63,6 +63,7 @@ namespace FileEncodingInfo
             {
                 path_and_encoding = $"{doc.FilePath} -- {doc.Encoding.EncodingName}";
             }
+            path_and_encoding = path_and_encoding.Replace("_", "__");
             byte a = (byte)(co >> 24);
             byte b = (byte)((co >> 16) & 0xff);
             byte g = (byte)((co >> 8) & 0xff);
