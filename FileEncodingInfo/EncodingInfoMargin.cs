@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Services;
+using System.IO;
 
 namespace FileEncodingInfo
 {
@@ -61,7 +62,25 @@ namespace FileEncodingInfo
             string path_and_encoding = "";
             if (doc != null)
             {
-                path_and_encoding = $"{doc.FilePath} -- {doc.Encoding.EncodingName}";
+                string sr_encoding_name = doc.Encoding.EncodingName;
+                try
+                {
+                    using (FileStream fs = File.OpenRead(doc.FilePath))
+                    {
+                        using (StreamReader sr = new StreamReader(fs))
+                        {
+                            sr.Read();
+                            sr_encoding_name = sr.CurrentEncoding.EncodingName;
+                            sr.Close();
+                        }
+                        fs.Close();
+                    }
+                }
+                catch
+                {
+
+                }
+                path_and_encoding = $"{doc.FilePath} -- {sr_encoding_name}";
             }
             path_and_encoding = path_and_encoding.Replace("_", "__");
             byte a = (byte)(co >> 24);
