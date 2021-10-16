@@ -13,7 +13,7 @@ namespace FileEncodingInfoDev17
     [Order(After = PredefinedMarginNames.HorizontalScrollBar)]  // Ensure that the margin occurs below the horizontal scrollbar
     [MarginContainer(PredefinedMarginNames.Bottom)]             // Set the container to the bottom of the editor window
     [ContentType("text")]                                       // Show this margin for all text-based types
-    [TextViewRole(PredefinedTextViewRoles.Interactive)]
+    [TextViewRole(PredefinedTextViewRoles.Document)]
     internal sealed class FileEncodingMarginFactory : IWpfTextViewMarginProvider
     {
         [Import]

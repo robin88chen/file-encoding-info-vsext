@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="FileEncodingInfoDev17.e6fc7f69-abf5-4801-8a03-3fa4dff8d484" Version="1.0" Language="en-US" Publisher="Lancelot 'Robin' Chen" />
+        <Identity Id="FileEncodingInfoDev17.e6fc7f69-abf5-4801-8a03-3fa4dff8d484" Version="1.0.1" Language="en-US" Publisher="Lancelot 'Robin' Chen" />
         <DisplayName>File Encoding Info (Preview2022)</DisplayName>
         <Description xml:space="preserve">Show file encoding code at text editor bottom </Description>
         <MoreInfo>https://github.com/lancelot-coder-chen/file-encoding-info-vsext</MoreInfo>
